@@ -11,7 +11,7 @@ class Background:
         pasta_principal = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
         # CORREÇÃO: Aponta exatamente para dentro da pasta ASSETS
-        caminho_imagem = os.path.join(pasta_principal, "ASSETS", "space bg game.png")
+        caminho_imagem = os.path.join(pasta_principal, "assets", "space bg game.png")
 
         # Carrega a imagem usando o caminho seguro do sistema
         imagem_original = pygame.image.load(caminho_imagem).convert()
