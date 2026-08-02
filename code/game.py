@@ -62,7 +62,7 @@ class Game:
                     self.tempo_de_jogo = 0.0
 
                 # Reiniciar após o fim da partida
-                elif self.state in ["GAMEOVER", "VITORIA"] and event.key == pygame.K_r:
+                elif self.state in ["GAME OVER", "VITORIA"] and event.key == pygame.K_r:
                     self.reset_game()
 
     def spawn_enemy(self) -> None:
@@ -87,7 +87,7 @@ class Game:
                 self.lives -= 1
                 self.player.health = 100
                 if self.lives < 0:
-                    self.state = "GAMEOVER"  # ESTADO DE DERROTA
+                    self.state = "GAME OVER"  # ESTADO DE DERROTA
 
         # Requisito de Objetivo: Coletar energia espalhada
         coletados = pygame.sprite.spritecollide(self.player, self.energy_items, True)
@@ -128,15 +128,15 @@ class Game:
             self.interface_menu.draw_text(self.screen, f"Vidas: {self.lives}", 20, 55, COR_VERMELHA)
             self.interface_menu.draw_text(self.screen, f"Energia (HP): {self.player.health}%", 20, 90, COR_VERDE)
 
-        elif self.state == "GAMEOVER":
+        elif self.state == "GAME OVER":
             self.interface_menu.draw_text(self.screen, "GAME OVER", 330, 230, COR_VERMELHA)
             self.interface_menu.draw_text(self.screen, "Pressione 'R' para Reiniciar", 250, 290, COR_BRANCA)
-            self.interface_menu.draw_text(self.screen, "Pressione 'ESC' para Sair", 265, 330, COR_BRANCA)
+            self.interface_menu.draw_text(self.screen, "Pressione 'ESC' para sair", 265, 330, COR_BRANCA)
 
         elif self.state == "VITORIA":
-            self.interface_menu.draw_text(self.screen, "VICTORIA! REQUISITO CUMPRIDO", 190, 230, COR_VERDE)
+            self.interface_menu.draw_text(self.screen, "VICTORIA! Requisito CUMPRIDO", 190, 230, COR_VERDE)
             self.interface_menu.draw_text(self.screen, "Pressione 'R' para Jogar Novamente", 210, 290, COR_BRANCA)
-            self.interface_menu.draw_text(self.screen, "Pressione 'ESC' para Sair", 265, 330, COR_BRANCA)
+            self.interface_menu.draw_text(self.screen, "Pressione 'ESC' para sair", 265, 330, COR_BRANCA)
 
         pygame.display.flip()
 
